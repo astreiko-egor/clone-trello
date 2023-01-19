@@ -1,44 +1,43 @@
 <template>
-    <nav class="header-menu" v-if="isShow">
-        <ul class="header-menu__list">
-            <li class="header-menu__item" v-for="(item, index) in listItems" :key="index">
-                <template v-if="item.dropdown && Object.keys(item.dropdown).length">
-                    <app-btn class="btn--no-style header-menu__btn" v-bind="item.link" :target="item.link?.target ? '_blank' : null" />
-                    <the-header-menu-dropdown :v-bind="item.dropdown" />
-                </template>
-                <template v-else>
-                    <app-btn class="btn--no-style header-menu__link" v-bind="item.link" :target="item.link?.target ? '_blank' : null" />
-                </template>
-            </li>
-        </ul>
-    </nav>
+  <nav class="header-menu" v-if="isShow">
+    <ul class="header-menu__list">
+      <li class="header-menu__item" v-for="(item, index) in listItems" :key="index">
+        <app-btn class="btn--no-style header-menu__btn" v-bind="item.link" :is-active="attrs.modelValue === index" :target="item.link?.target ? '_blank' : null"
+                 @click="item.dropdown ? onClick(index) : null"/>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script lang="ts" setup>
-import { defineAsyncComponent, computed } from 'vue';
+import {defineAsyncComponent, computed, useAttrs} from 'vue';
 import {IHeaderMenuLink, IHeaderMenuDropdown} from '@/types/interfaceHeaderMenu'
 
 type ListItems = {
-    // Id пункта меню
-    id?: string | number;
-    link?: IHeaderMenuLink;
-    // Дропдаун меню
-    dropdown?: IHeaderMenuDropdown | null;
+  // Id пункта меню
+  id?: string | number;
+  link?: IHeaderMenuLink;
+  // Дропдаун меню
+  dropdown?: IHeaderMenuDropdown | null;
 }
 
-const AppLink = defineAsyncComponent(() => import('@/components/AppLink/AppLink.vue'))
 const AppBtn = defineAsyncComponent(() => import('@/components/AppBtn/AppBtn.vue'))
-const TheHeaderMenuDropdown = defineAsyncComponent(() => import('@/components/TheHeader/TheHeaderMenu/TheHeaderMenuDropdown/TheHeaderMenuDropdown.vue'))
 
 const props = withDefaults(
     defineProps<{
-        // Список пунктов меню
-        listItems?: ListItems[] | null;
+      // Список пунктов меню
+      listItems?: ListItems[] | null;
     }>(),
     {
-        listItems: null
+      listItems: null
     }
 )
+
+const emit = defineEmits<{
+  (e: 'update:modelValue', index: number): void;
+}>();
+
+const attrs = useAttrs();
 
 /**
  * Отрисовывать ли компонент
@@ -46,8 +45,24 @@ const props = withDefaults(
  * @return boolean
  */
 const isShow = computed(() => {
-    const listItems = props.listItems;
+  const listItems = props.listItems;
 
-    return listItems && listItems.length;
+  return listItems && listItems.length;
 })
+
+const onClick = (index: number) => {
+  emit('update:modelValue', attrs.modelValue === index ? -1 : index)
+}
 </script>
+
+<style lang="scss" scoped>
+.header-menu__list {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+
+.header-menu__item {
+  padding: 20px 16px;
+}
+</style>

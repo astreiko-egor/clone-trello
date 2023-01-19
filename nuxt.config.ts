@@ -17,5 +17,8 @@ export default defineNuxtConfig({
     },
     modules: [
         'vite-plugin-vue-type-imports/nuxt'
+    ],
+    plugins: [
+        '@/plugins/onClickOutside.ts'
     ]
 })

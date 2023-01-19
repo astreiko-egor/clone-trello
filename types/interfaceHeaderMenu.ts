@@ -22,17 +22,17 @@ interface IBtn extends IHeaderMenuLink {
     className?: string;
 }
 
-interface IHeaderMenuDropdownNavLink {
+export interface IHeaderMenuDropdownNavLink {
     // Id
     id?: number | string;
     // Ссылка
-    to?: string;
+    to?: string | null;
     // Название иконки
-    iconName?: string;
+    iconName?: string | null;
     // Название
-    title?: string;
+    title?: string | null;
     // Описание
-    description?: string;
+    description?: string | null;
 }
 
 interface IHeaderMenuDropdownBanner extends Exclude<IHeaderMenuDropdownNavLink, 'to'> {

@@ -1,0 +1,150 @@
+{
+  "numTotalTestSuites": 8,
+  "numPassedTestSuites": 8,
+  "numFailedTestSuites": 0,
+  "numPendingTestSuites": 0,
+  "numTotalTests": 9,
+  "numPassedTests": 9,
+  "numFailedTests": 0,
+  "numPendingTests": 0,
+  "numTodoTests": 0,
+  "startTime": 1674107650896,
+  "success": true,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "AppContainer"
+          ],
+          "fullName": " AppContainer Компонент не отображается, если не помещать данные в слот",
+          "status": "passed",
+          "title": "Компонент не отображается, если не помещать данные в слот",
+          "duration": 40,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "AppContainer"
+          ],
+          "fullName": " AppContainer Рендеринг контента помещенного в слот",
+          "status": "passed",
+          "title": "Рендеринг контента помещенного в слот",
+          "duration": 42,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "AppContainer"
+          ],
+          "fullName": " AppContainer Добавление класса \"container--big\" при передаче пропса size === \"big\"",
+          "status": "passed",
+          "title": "Добавление класса \"container--big\" при передаче пропса size === \"big\"",
+          "duration": 23,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "AppContainer"
+          ],
+          "fullName": " AppContainer Отсутсвие класса \"container--big\" при передаче пропса size !== \"big\"",
+          "status": "passed",
+          "title": "Отсутсвие класса \"container--big\" при передаче пропса size !== \"big\"",
+          "duration": 10,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1674107653906,
+      "endTime": 1674107654021,
+      "status": "passed",
+      "message": "",
+      "name": "D:/work/code/my/todo-list/frontend/components/AppContainer/AppContainer.spec.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "TheHeader"
+          ],
+          "fullName": " TheHeader Правильный класс, при рендеринге",
+          "status": "passed",
+          "title": "Правильный класс, при рендеринге",
+          "duration": 31,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "TheHeader"
+          ],
+          "fullName": " TheHeader Рендеринг html потомков",
+          "status": "passed",
+          "title": "Рендеринг html потомков",
+          "duration": 441,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1674107653910,
+      "endTime": 1674107654382,
+      "status": "passed",
+      "message": "",
+      "name": "D:/work/code/my/todo-list/frontend/components/TheHeader/TheHeader.spec.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "AppLink"
+          ],
+          "fullName": " AppLink Компонент не отображается, если не прокидовать пропс to и (text или iconAfterText или iconBeforeText) ",
+          "status": "passed",
+          "title": "Компонент не отображается, если не прокидовать пропс to и (text или iconAfterText или iconBeforeText) ",
+          "duration": 37,
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "",
+            "AppLink"
+          ],
+          "fullName": " AppLink Компонент отображает текст, если прокинуть прокс to и text",
+          "status": "passed",
+          "title": "Компонент отображает текст, если прокинуть прокс to и text",
+          "duration": 53,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1674107655785,
+      "endTime": 1674107655875,
+      "status": "passed",
+      "message": "",
+      "name": "D:/work/code/my/todo-list/frontend/components/AppLink/AppLink.spec.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "",
+            "TheHeaderMenu"
+          ],
+          "fullName": " TheHeaderMenu Компонент не отображается, если не прокидовать пропс listItems",
+          "status": "passed",
+          "title": "Компонент не отображается, если не прокидовать пропс listItems",
+          "duration": 31,
+          "failureMessages": []
+        }
+      ],
+      "startTime": 1674107655992,
+      "endTime": 1674107656023,
+      "status": "passed",
+      "message": "",
+      "name": "D:/work/code/my/todo-list/frontend/components/TheHeader/TheHeaderMenu/TheHeaderMenu.spec.ts"
+    }
+  ]
+}

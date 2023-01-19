@@ -1,19 +1,20 @@
 <template>
-  <header class="header">
+  <header class="header" v-on-click-outside="onCloseTheHeaderDropdown">
     <app-container class="header__container" size="big">
       <div class="header__content">
-        <the-header-menu class="header__menu" :list-items="headerMenuItems"/>
+        <the-header-menu class="header__menu" :list-items="headerMenuItems" v-model="activeIndexDropdown"/>
+        <the-header-menu-dropdown :is-show="activeIndexDropdown === index" v-for="(dropdown, index) in headerMenuItems" :key="index" v-bind="dropdown.dropdown"/>
       </div>
     </app-container>
   </header>
 </template>
 
 <script lang="ts" setup>
-import {defineAsyncComponent} from 'vue';
+import {defineAsyncComponent, ref} from 'vue';
 import {IHeaderMenuDropdown, IHeaderMenuLink} from '~/types/interfaceHeaderMenu'
-
 const AppContainer = defineAsyncComponent(() => import('@/components/AppContainer/AppContainer.vue'))
 const TheHeaderMenu = defineAsyncComponent(() => import('@/components/TheHeader/TheHeaderMenu/TheHeaderMenu.vue'))
+const TheHeaderMenuDropdown = defineAsyncComponent(() => import('@/components/TheHeader/TheHeaderMenu/TheHeaderMenuDropdown/TheHeaderMenuDropdown.vue'))
 
 type ListItems = {
   // Id пункта меню
@@ -28,6 +29,7 @@ const headerMenuItems: ListItems[] = [
     id: 0,
     link: {
       text: 'Возможности',
+      iconAfterText: 'border-arrow-down'
     },
     dropdown: {
       primaryTitle: 'Изучите функции, которые помогут привести вашу команду к успеху.',
@@ -83,6 +85,7 @@ const headerMenuItems: ListItems[] = [
     id: 1,
     link: {
       text: 'Решения',
+      iconAfterText: 'border-arrow-down'
     },
     dropdown: {
       primaryTitle: 'Изучите сборники сценариев Copy — они подходят для любых команд.',
@@ -174,6 +177,7 @@ const headerMenuItems: ListItems[] = [
     id: 2,
     link: {
       text: 'Планы',
+      iconAfterText: 'border-arrow-down'
     },
     dropdown: {
       primaryNavLinks: [
@@ -231,6 +235,7 @@ const headerMenuItems: ListItems[] = [
     id: 4,
     link: {
       text: 'Ресурсы',
+      iconAfterText: 'border-arrow-down'
     },
     dropdown: {
       primaryNavLinks: [
@@ -282,10 +287,34 @@ const headerMenuItems: ListItems[] = [
   },
 ]
 
+const activeIndexDropdown = ref(-1)
+
+const onCloseTheHeaderDropdown = () => {
+  activeIndexDropdown.value = -1;
+}
 </script>
 
 <style lang="scss" scoped>
+.header {
+  background-color: #ffffff;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 2;
+  }
+}
+
 .header__logo {
   max-width: 110px;
+}
+
+.header__content {
+  z-index: 3;
 }
 </style>

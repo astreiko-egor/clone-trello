@@ -65,5 +65,47 @@ const dynamicActiveClass = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
 
+  &--no-style {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+  }
+}
+
+.btn__content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  > * {
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.btn__wrapper-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+}
+
+.btn__icon {
+  &.icon--border-arrow-down {
+    width: 13px;
+    height: 8px;
+  }
+}
 </style>
