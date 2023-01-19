@@ -11,6 +11,7 @@
       </div>
       <div class="header-menu-dropdown__right">
         <h3 v-if="secondaryTitle" class="header-menu-dropdown__secondary-title">{{ secondaryTitle }}</h3>
+        <p v-if="secondaryDescription" class="header-menu-dropdown__description">{{ secondaryDescription }}</p>
       </div>
     </div>
   </div>
@@ -125,5 +126,16 @@ const dynamicShowClass = computed(() => {
 
 .header-menu-dropdown__secondary-title {
   border-bottom-color: #EAEDFA;
+}
+
+.header-menu-dropdown__description {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgb(80, 95, 121);
+  margin-bottom: 8px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 </style>
